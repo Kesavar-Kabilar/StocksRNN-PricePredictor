@@ -1,3 +1,4 @@
 
-
-Members: Kesavar Kabilar
+Members: 
+Kesavar Kabilar
+Ryan Laporte
