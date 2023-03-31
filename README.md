@@ -8,45 +8,45 @@ This recurrent neural network will be trained to both predict whether a stock pr
 
 ## Model 
 
-##### Figure
+### Figure
 
-##### Parameters
+### Parameters
 
-##### Examples
+### Examples
 
 ## Data
 
-##### Source
+### Source
 
 https://www.kaggle.com/datasets/borismarjanovic/price-volume-data-for-all-us-stocks-etfs
 
 The dataset that will be utilized to train this model will be, "Huge Stock Market Dataset" by Boris Marjanovic under the CC0: Public Domain License. This dataset contains all US-based stocks and ETFs. 
 
-##### Summary
+### Summary
 
 For this project, we will only be using Stocks (not ETFs). This dataset contains 7195 different stock companies and their own stock price ranges per day in their own file. 
 
 Given a specific date and company, this dataset contains information on the open price of the day, the highest price of the day, the lowest price of the day, the closing price of the day, volume and OpenInt of that company's stocks for that date.
 
-##### Transformation
+### Transformation
 
 Of the 7195 different stock companies, there are 580 companies that contain less than 100 days of data. Hence they will be removed from the used dataset. As a result, there will be a total of 6615 companies, from each we will take the 100 most recent available days and utilize them as our dataset for this project.
 
 The volume and OpenInt will be ignored for this dataset as they are irrelevant for the purpose of predicting future price changes.
 
-##### Split
+### Split
 
 ## Testing
 
-##### Training Curve
+### Training Curve
 
-##### Hyperparameter Tuning
+### Hyperparameter Tuning
 
-##### Quantitative Measures
+### Quantitative Measures
 
-##### Quantitative and Qualitative Results
+### Quantitative and Qualitative Results
 
-##### Justification of Results
+### Justification of Results
 
 ## Ethical Considerations
 
@@ -56,16 +56,18 @@ This could also be utilized to manipulate middle-class people by influential ind
 
 ## Authors
 
-Most of the work for this project will be done collaboratively utilizing VSC's (visual studio code's) extension of live share which allows multiple users to collaborate and work on the same file at the same time. In addition to this, there will be open verbal communication via a voice call on Discord throughout this project. Training and testing models may be done utilizing Google Collab to make use of their GPUs.
+Most of the work for this project will be done collaboratively utilizing VSC's (visual studio code's) extension of live share which allows multiple users to collaborate and work on the same file at the same time. In addition to this, there will be open verbal communication via a voice call on Discord throughout this project. Training and testing models may be done utilizing Google Collab to make use of their GPUs. Weekly progress meetings will be conducted on Friday 3-4pm and Sunday 3-4pm.
 
-##### Division of Work
+### Division of Work
 
 Importing and Preprocessing Data: Kesavar and Ryan
+
 Base Recurrent Neural Network Model: Kesavar, Ryan and Carmelo
+
 LSTM Recurrent Neural Network Model: Kesavar and Ryan
+
 Training Function: Kesavar and Carmelo and Ryan
+
 Overfit to Single Point: Kesavar and Carmelo
+
 Testing RNNs and Displaying Results: Kesavar, Ryan and Carmelo
-
-
-Weekly progress meetings will be conducted on Friday 3-4pm and Sunday 3-4pm.
