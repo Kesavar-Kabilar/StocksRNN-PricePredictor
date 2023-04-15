@@ -16,7 +16,17 @@ This recurrent neural network will be trained to both predict whether a stock pr
 
 ### Parameters
 
+For the RNN stocks model there is one rnn layer with 4x150 parameters with 150 biases and one fully connected layer of size 150x1 with 1 bias. Hence there are 4x150 + 150 + 150x1 + 1 = 600 + 150 + 150 + 1 = 901 total parameters.
+
 ### Examples
+
+Best Model Prediction with a mean squared error of approximately 0.12.
+
+![](./BestModelPrediction.png)
+
+Worst Model Prediction of Mean Squared Error of approximately 0.65.
+
+![](./WorstModelPrediction.png)
 
 ## Data
 
@@ -45,6 +55,10 @@ The data was first randomized, then split such that 60% of the data was assigned
 ## Testing
 
 ### Training Curve
+
+![](./RNNModel.png)
+
+![](./LSTMModel.png)
 
 ### Hyperparameter Tuning
 
