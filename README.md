@@ -40,6 +40,8 @@ The volume and OpenInt will be ignored for this dataset as they are irrelevant f
 
 ### Split
 
+The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split. Similarly, if the data points were split based on company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute.
+
 ## Testing
 
 ### Training Curve
