@@ -2,11 +2,11 @@
 
 ## Introduction
 
-The purpose of this project is to create a recurrent neural network model to predict future stock market prices according to previous price ranges. The number of days the model is trained with will be treated as a hyperparameter, with the values tested for the hyperparameter ranging from 5 to 15. This model will be tested for accuracy based on its ability to predict stock values of the next day.In addition to this, the model will be tested on whether it correctly predicts a positive or negative change in stock price and how close it is to the total amount of increase or decrease in the stock price.
+The purpose of this project is to create a recurrent neural network model to predict future stock market prices according to previous price ranges. The model will receive information for a number of days, which will be treated as a hyperparameter, and output a prediction of the stock value for the next day. This model will be tested for accuracy based on its ability to predict stock values of the next day. In addition to this, the model will be tested on whether it correctly predicts a positive or negative change in stock price.
 
-This recurrent neural network will be trained to both predict whether a stock price will increase or decrease, and separately predict by how much the stock will increase or decrease. As a result, this recurrent neural network will utilize both standard classification (increase or decrease) and standard regression. 
+This recurrent neural network utilizes standard classification to predict an increase or decrease, and standard regression to predict the stock value for the next day.
 
-This project will utilize a simple Recurrent Neural Network Model as well as a Long Short Term Memory Model for the prediction of the stock market. Since stock prices often have various trends it is essential to see the previous data to aid in one's prediction on the future data. Hence RNN and LSTM are very suitable for this project as they can store previous trends and make a highly accurate predictions.
+This project utilizes a Recurrent Neural Network (RNN) Model as well as a Long Short Term Memory (LSTM) Model  for the prediction of the stock market. Since stock prices often have various trends it is essential to see the previous data to aid in one's prediction on the future data. Hence RNN and LSTM are very suitable for this project as they can store previous trends and make a highly accurate predictions.
 
 ## Model
 
@@ -18,11 +18,11 @@ This project will utilize a simple Recurrent Neural Network Model as well as a L
 
 ### Parameters
 
-Since each input contains 4 values, opening price, highest price, lowest price, and closing price each day will consist of 4 values.
+Each day contains 4 features: the stock's opening price, the stock's highest and lowest prices for that day, and the stock's closing price. As such, each input will consist of these 4 features.
 
-For the RNN stocks model there is one rnn layer with 4 (number of values in input) x 150 (Chosen Hyperparameter) parameters with 150 biases and one fully connected layer of size 150x1 with 1 bias. Hence there are 4x150 + 150 + 150x1 + 1 = 600 + 150 + 150 + 1 = 901 total parameters.
+For the RNN stocks model there is one RNN layer with 4 (number of features in input) x 150 (chosen hyperparameter) parameters along with 150 biases and one fully connected layer of size 150 (number of inputs in previous layer) x 1 along with 1 bias. Hence there are 4x150 + 150 + 150x1 + 1 = 600 + 150 + 150 + 1 = 901 total parameters.
 
-For the LSTM stocks model there is one lstm layer with 4 (Since there are 4 channels in LSTM) x 4 (number of values in input) x 150 (Chosen Hyperparameter) parameters with 150 biases and one fully connected layer of size 150 (number of previous inputs) x 1 with 1 bias. Hence there are 4x4x150 + 150 + 150x1 + 1 = 2400 + 150 + 150 + 1 = 2701 total parameters.
+For the LSTM stocks model there is one LSTM layer with 4 (Since there are 4 channels in LSTM) x 4 (number of values in input) x 150 (chosen hyperparameter) parameters with 150 biases and one fully connected layer of size 150 (number of inputs in previous layer) x 1 with 1 bias. Hence there are 4x4x150 + 150 + 150x1 + 1 = 2400 + 150 + 150 + 1 = 2701 total parameters.
 
 ### Examples
 
@@ -40,17 +40,17 @@ Worst Model Prediction of Mean Squared Error of approximately 0.65.
 
 https://www.kaggle.com/datasets/borismarjanovic/price-volume-data-for-all-us-stocks-etfs
 
-The dataset that will be utilized to train this model will be, "Huge Stock Market Dataset" by Boris Marjanovic under the CC0: Public Domain License. This dataset contains all US-based stocks and ETFs.
+The dataset utilized to train this model is "Huge Stock Market Dataset" by Boris Marjanovic under the CC0: Public Domain License. This dataset contains all US-based stocks and ETFs.
 
 ### Summary
 
-For this project, we will only be using Stocks (not ETFs). This dataset contains 7195 different stock companies and their own stock price ranges per day in their own file.
+This project only used stocks (not ETFs). This dataset contains 7195 different stock companies and their own stock price ranges per day in their own file.
 
 Given a specific date and company, this dataset contains information on the open price of the day, the highest price of the day, the lowest price of the day, the closing price of the day, volume and OpenInt of that company's stocks for that date.
 
 ### Transformation
 
-Of the 7195 different stock companies, there are 580 companies that contain less than 100 days of data. Hence they will be removed from the used dataset. As a result, there will be a total of 6615 companies, from each we will take the 100 most recent available days and utilize them as our dataset for this project.
+Of the 7195 different stock companies, there are 580 companies that contain less than 100 days of data. Hence they are removed from the used dataset. As a result, there are a total of 6615 companies, with 100 most recent available days for each being used as the dataset for this project.
 
 The volume and OpenInt will be ignored for this dataset as they are irrelevant for the purpose of predicting future price changes.
 
@@ -68,11 +68,11 @@ The data was first randomized, then split such that 60% of the data was assigned
 
 ### Advanced Concept: Data Augmentation
 
-The data was augmented by reversing each input to predict the previous days. In other words utilizing the data from days 5 to 2 to predict the prices from the 1st day. Since the purpose of the model is to predict the pattern of the prices, calculating the pattern in reverse can also expand the amount of input and give more data for the model to train.
+The data was augmented by reversing each input to predict the previous days. In other words utilizing the data from days 5 to 2 to predict the price of the 1st day. Since the purpose of the model is to predict the pattern of the prices, calculating the pattern in reverse can also expand the amount of input and give more data for the model to train.
 
 ### Hyperparameter Tuning
 
-The following table shows the training, test, and validation accuracies for different hyperparameter values. Note: for Training Error, Validation Error, and Test Error it is better to have a lower value since the value represent its average distance from the target values. For Classification Error it is better to have a larger value as it predicts the accuracy of whether the model's prediction of increase or decrease was accurate.
+The following table shows the training, test, and validation accuracies for different hyperparameter values. Note that for Training Error, Validation Error, and Test Error it is better to have a lower value since the value represent its average distance from the target values. For Classification Error it is better to have a larger value as it predicts the accuracy of whether the model's prediction of increase or decrease was accurate.
 
 RNN Model
 
@@ -82,19 +82,23 @@ LSTM Model
 
 ![img](./ImageResults/LSTMHyperparameterTuning.png)
 
-As can be seen from the table, the RNN model performed slightly better than the LSTM Model. With the observations from the above table the best hyperparameter choices were to choose 100 Epochs with a batch size of 500 and with the previous 15 days of data.
+As can be seen from the table, the RNN model performed slightly better than the LSTM Model. With the observations from the above table the best hyperparameter choices were to choose 200 epochs with a batch size of 500 and with the previous 15 days of data.
 
 ## Results
 
 ### Quantitative Measures
 
-The quantitative measures that were used to evaluate this model is by calculating the mean squared error of the model and by calcuating if it's prediction of increase or decrease were accurate. The mean squared error test how far the model's prediction were from the actual target company. The results obtained from the chart above indicated that our best model was on average 9% away from the target value. We also measured our regression model to predict an increase or decrease of the stock prices. Although we noticed that our regression model was not best suited to predict only the increase or decrease since our model is aimed to get close to the target value and not focused on whether the final value is increasing or decreasing. In order to achieve a successful increase or decrease model we should replicate the previous model with a soft max for it's final layer and train the model accordingly.
+The quantitative measures that were used to evaluate this model were the mean squared error of the model compared to the target stock value, and the correctness of the model's prediction of an increase or decrease. The mean squared error tested how far the model's prediction were from the actual target stock value. The correctness of the model's prediction of an increase or decrease was based on whether the model predicted a higher or lower stock value than the previous day's stock value, and was compared to whether the actual stock value had increased or decreased. A correct prediction was a correct increase or decrease prediction, and anything else was considered incorrect.
 
 ### Quantitative and Qualitative Results
 
+The results obtained from the chart above indicated that our best model was on average 7.0588% away from the target value. This model was the RNN model and had 200 epochs, a batch size of 500, and had been given the previous 15 days of data. It had a mean squared training error of 7.7342%, mean squared validation error of 7.6471%, and a mean squared testing error of 7.0588%. It also had a classification error of 48.1734%. This is highly inaccurate, and will be explained in the justification section below.
+
 ### Justification of Results
 
-Both models were designed as regression based models for predicting, and as such they both were able to predict the target with relatively high accuracy. The _____ model performed _____ better than the _____ model. This is likely due to ______. Overall both models were able to predict with relatively high accuracy, however, these models were designed with regression in mind and classification was a secondary focus. To perform the increase or decrease classification the model's predictions were simply compared to the previous day to determine whether the model implied an increase or decrease. This turned out to be very unsatisfactory, as the model's classification predictions were much worse in comparison to the regression based results.
+The RNN and LSTM models were designed as regression based models for predicting the next day's stock values, and as such they both were able to predict the target price with relatively low error. The RNN model performed better than the LSTM model given any selection of hyperparameters. This is likely due to having a small previous set of days for the model to learn from. Given a larger number of days to learn from the LSTM model may improve in accuracy over the RNN model due to being able to prioritize important information. This is currently relatively unnecessary due to the smaller set of days. Further improvement to either model could be made by testing additional hyperparameter values, modifying the model architecture to include additional layers, or simply providing additional training data which includes more recent stock results to generalize to more recent stock trends. Overall, both models were able to learn to predict a day's stock value with relatively low error. However, these models were designed with regression in mind and classification was a secondary focus.
+
+We also measured our regression model to predict an increase or decrease in the stock prices. This turned out to be highly inadequate, as the model's classification predictions were much worse in comparison to the regression based results. The best out of both models only slightly outperform a model that simply outputs 'increase' in every case. In order to design a model to successful predict an increase or decrease in stock value we could replicate the previous model with a soft max for it's final layer and adjust the data sets for the model accordingly.
 
 ## Ethical Considerations
 
@@ -108,7 +112,7 @@ In summary, the model's many considerations and biases must be considered before
 
 ## Authors
 
-Most of the work for this project will be done collaboratively utilizing VSC's (visual studio code's) extension of live share which allows multiple users to collaborate and work on the same file at the same time. In addition to this, there will be open verbal communication via a voice call on Discord throughout this project. Training and testing models may be done utilizing Google Collab to make use of their GPUs. Weekly progress meetings will be conducted on Friday 3-4pm and Sunday 3-4pm.
+Most of the work for this project was done collaboratively utilizing Visual Studio Code's extension live share which allows multiple users to collaborate and work on the same file at the same time.  Training and testing models was done utilizing Google Collab to make use of their GPUs.
 
 ### Division of Work
 
@@ -119,7 +123,5 @@ Base Recurrent Neural Network Model: Kesavar, Ryan and Carmelo
 LSTM Recurrent Neural Network Model: Kesavar and Ryan
 
 Training Function: Kesavar and Carmelo and Ryan
-
-Overfit to Single Point: Kesavar and Carmelo
 
 Testing RNNs and Displaying Results: Kesavar, Ryan and Carmelo
