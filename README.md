@@ -50,7 +50,7 @@ Of the 7195 different stock companies, there are 580 companies that contain less
 
 The volume and OpenInt will be ignored for this dataset as they are irrelevant for the purpose of predicting future price changes.
 
-### Split
+### Data Split
 
 The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split. Similarly, if the data points were split based on company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute.
 
@@ -68,17 +68,75 @@ The data was augmented by reversing each input to predict the previous days. Sin
 
 ### Hyperparameter Tuning
 
+The following table shows the training, test, and validation accuracies for different hyperparameter values.
+
+RNN Model
+
+| Learning Rate | Epochs | Batch Size | Num Days | Training Error | Validation Error | Test Error | Classification Error |
+| ------------- | ------ | ---------- | -------- | -------------- | ---------------- | ---------- | -------------------- |
+| 1E-5          | 50     | 500        | 5        |                |                  |            |                      |
+| 1E-5          | 50     | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 50     | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 15       |                |                  |            |                      |
+| 1E-5          | 100    | 500        | 5        |                |                  |            |                      |
+| 1E-5          | 100    | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 100    | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 15       |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 5        |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 15       |                |                  |            |                      |
+
+LSTM Model
+
+| Learning Rate | Epochs | Batch Size | Num Days | Training Error | Validation Error | Test Error | Classification Error |
+| ------------- | ------ | ---------- | -------- | -------------- | ---------------- | ---------- | -------------------- |
+| 1E-5          | 50     | 500        | 5        |                |                  |            |                      |
+| 1E-5          | 50     | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 50     | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 50     | 1000       | 15       |                |                  |            |                      |
+| 1E-5          | 100    | 500        | 5        | 0.238207       | 0.223977         | 0.2033241  |                      |
+| 1E-5          | 100    | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 100    | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 100    | 1000       | 15       |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 5        |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 10       |                |                  |            |                      |
+| 1E-5          | 200    | 500        | 15       |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 5        |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 10       |                |                  |            |                      |
+| 1E-5          | 200    | 1000       | 15       |                |                  |            |                      |
+
+As can be seen from the table, _____ performed the best on the validation set, while _______ performed the worst.
+
 ### Quantitative Measures
+
 
 ### Quantitative and Qualitative Results
 
+
 ### Justification of Results
+
+Both models were designed as regression based models for predicting, and as such they both were able to predict the target with relatively high accuracy. The _____ model performed _____ better than the _____ model. This is likely due to ______. Overall both models were able to predict with relatively high accuracy, however, these models were designed with regression in mind and classification was a secondary focus. To perform the increase or decrease classification the model's predictions were simply compared to the previous day to determine whether the model implied an increase or decrease. This turned out to be very unsatisfactory, as the model's classification predictions were much worse in comparison to the regression based results.
 
 ## Ethical Considerations
 
-There are many ethical implications from being aware of this model's existence. An example of this is how it would affect middle-class people. Advertising this model as a flawless predictor of stocks may result in many individuals blindly trusting the predictions from this model and may result in one losing their entire life savings. In addition to this, the people who are aware of the model and its uses could be aware that a group of users may purchase or sell at a specific time based on the model's predictions and use that knowledge for their own personal gain.
+This model's limitations must be considered fully to be used ethically. The most prominent limitation is the model's accuracy; this model is relatively accurate but may still produce predictions that could be slightly or very off. The model also does not indicate or predict this inaccuracy, and as such the model's accuracy must be kept in consideration when in use. Informing others of the model's predictions without mentioning the model's accuracy may be a source of unethical use. Using this model to suggest others should buy or sell a stock based on the prediction without mentioning the possibility of error is an example of this unethical use.
 
-This could also be utilized to manipulate middle-class people by influential individuals or company owners. Individuals with a strong influential potential may use these predictions to manipulate users into buying or selling at a particular time for personal gain. On the other hand, as a company owner knowing when people will sell or buy your company's share of the stock could be maliciously used to control when to decrease or increase your company's stakes.
+The model's training should also be kept in consideration in order to be used ethically. This model was trained on data collected up to 11/10/2017. As such, usage to predict dates beyond 2017 should keep this limitation in mind. Stock market trends and strategies may have changed between the time of data collection and training and the use of this model. As such the model's accuracy and use should decrease the further the usage time is from 11/10/2017. Failing to do so or consider this could be a source of unethical use. Using this model's prediction in 2030 to advise others on a course of action without indicating this flaw is an example of this unethical use.
+
+Lastly, in addition to considering the time of the model's training data, biases within the training data itself should be considered. Companies with less than 100 data points were removed from the model's training data. The reason for the fewer data points was not considered in this data restriction. As such, any companies with trends that led to early bankruptcy will not have been detected by this model. This means this model should not be used to predict stock values of any smaller companies, as it will likely not detect whether the company may suddenly lose stock value or go bankrupt. Failing to consider this when using this model to inform others may be another source of unethical use.
+
+In summary, the model's many considerations and biases must be considered before using this model to inform one's own or other's decisions. Failing to do so may result in unethical use.
 
 ## Authors
 
