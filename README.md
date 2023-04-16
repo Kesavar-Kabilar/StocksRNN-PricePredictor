@@ -10,9 +10,9 @@ This recurrent neural network will be trained to both predict whether a stock pr
 
 ### Figure
 
-![plot](./StocksRNNModelArchitecture.png)
+![](./ImageResults/StocksRNNModelArchitecture.png)
 
-![plot](./StocksLSTMModelArchitecture.png)
+![](./ImageResults/StocksLSTMModelArchitecture.png)
 
 ### Parameters
 
@@ -24,11 +24,11 @@ For the LSTM stocks model there is one lstm layer with 4x4x150 parameters with 1
 
 Best Model Prediction with a mean squared error of approximately 0.12.
 
-![](./BestModelPrediction.png)
+![](./ImageResults/BestModelPrediction.png)
 
 Worst Model Prediction of Mean Squared Error of approximately 0.65.
 
-![](./WorstModelPrediction.png)
+![](./ImageResults/WorstModelPrediction.png)
 
 ## Data
 
@@ -58,9 +58,9 @@ The data was first randomized, then split such that 60% of the data was assigned
 
 ### Training Curve
 
-![](./RNNModel.png)
+![](./ImageResults/RNNModel.png)
 
-![](./LSTMModel.png)
+![](./ImageResults/LSTMModel.png)
 
 ### Advanced Concept: Data Augmentation
 
