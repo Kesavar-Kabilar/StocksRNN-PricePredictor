@@ -62,6 +62,10 @@ The data was first randomized, then split such that 60% of the data was assigned
 
 ![](./LSTMModel.png)
 
+### Advanced Concept: Data Augmentation
+
+The data was augmented by reversing each input to predict the previous days. Since the purpose of the model is to predict the pattern of the values calculating the pattern in reverse can also expand our input and give more data for the model to train.
+
 ### Hyperparameter Tuning
 
 ### Quantitative Measures
