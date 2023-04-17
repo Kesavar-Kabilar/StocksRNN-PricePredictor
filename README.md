@@ -56,7 +56,9 @@ The volume and OpenInt will be ignored for this dataset as they are irrelevant f
 
 ### Data Split
 
-The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split. Similarly, if the data points were split based on company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute. It is important to note that different companies were in different dataset as we wanted this model to learn the general pattern for which it could expand and be tested for completely new companies.
+The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split. 
+
+Similarly, if the data points were split based on company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute. It is important to note that different companies were in different dataset as we wanted this model to learn the general pattern for which it could expand and be tested for completely new companies.
 
 ## Training
 
@@ -96,9 +98,13 @@ The results obtained from the chart above indicated that our best model was on a
 
 ### Justification of Results
 
-The RNN and LSTM models were designed as regression based models for predicting the next day's stock values, and as such they both were able to predict the target price with relatively low error. The RNN model performed better than the LSTM model given any selection of hyperparameters. This is likely due to having a small previous set of days for the model to learn from. Given a larger number of days to learn from the LSTM model may improve in accuracy over the RNN model due to being able to prioritize important information. This is currently relatively unnecessary due to the smaller set of days. Further improvement to either model could be made by testing additional hyperparameter values, modifying the model architecture to include additional layers, or simply providing additional training data which includes more recent stock results to generalize to more recent stock trends. Overall, both models were able to learn to predict a day's stock value with relatively low error. However, these models were designed with regression in mind and classification was a secondary focus.
+The RNN and LSTM models were designed as regression based models for predicting the next day's stock values, and as such they both were able to predict the target price with relatively low error. The RNN model performed better than the LSTM model given any selection of hyperparameters. This is likely due to having a small previous set of days for the model to learn from. Given a larger number of days to learn from the LSTM model may improve in accuracy over the RNN model due to being able to prioritize important information. 
+
+This is currently relatively unnecessary due to the smaller set of days. Further improvement to either model could be made by testing additional hyperparameter values, modifying the model architecture to include additional layers, or simply providing additional training data which includes more recent stock results to generalize to more recent stock trends. Overall, both models were able to learn to predict a day's stock value with relatively low error. However, these models were designed with regression in mind and classification was a secondary focus.
 
 We also measured our regression model to predict an increase or decrease in the stock prices. This turned out to be highly inadequate, as the model's classification predictions were much worse in comparison to the regression based results. The best out of both models only slightly outperform a model that simply outputs 'increase' in every case. In order to design a model to successful predict an increase or decrease in stock value we could replicate the previous model with a soft max for it's final layer and adjust the data sets for the model accordingly.
+
+The results obtained from our model was very reasonable and impressive. This model was very accurate with its predicted values and as seen by the example graphs above the model performed very well even in the worst mean squared error example. It was still able to find the general pattern and keep predicting the correct values. Although as seen by the results in the tables displayed in Hyperparameter tuning, the hyperparameters were essential in choosing the most accurate model as some other hyperparameter choices performed very poorly.
 
 ## Ethical Considerations
 
@@ -125,3 +131,5 @@ LSTM Recurrent Neural Network Model: Kesavar and Ryan
 Training Function: Kesavar and Carmelo and Ryan
 
 Testing RNNs and Displaying Results: Kesavar, Ryan and Carmelo
+
+Readme.md: Kesavar, Ryan, and Carmelo
