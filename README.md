@@ -56,7 +56,11 @@ The volume and OpenInt will be ignored for this dataset as they are irrelevant f
 
 ### Data Split
 
+<<<<<<< HEAD
+The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split.
+=======
 The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however, the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split. 
+>>>>>>> 86ab627e9f26acc82ea92ed0e1bf9979c5c6892a
 
 Similarly, if the data points were split based on the company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute. It is important to note that different companies were in different datasets as we wanted this model to learn the general pattern for which it could expand and be tested for completely new companies.
 
@@ -94,11 +98,25 @@ The quantitative measures that were used to evaluate this model were the mean sq
 
 ### Quantitative and Qualitative Results
 
+<<<<<<< HEAD
+The results obtained from the chart above indicated that our best model was on average 0.070588 away from the target value. This model was the RNN model and had 200 epochs, a batch size of 500, and had been given the previous 15 days of data. It had a mean squared training error of 0.077342, a mean squared validation error of 0.076471 and a mean squared testing error of 0.070588. It also had a classification (increase/decrease) error of 48.1734% due to this model being solely trained to evaluate a value that is closest to the next prediction rather than value being larger or smaller (explained in more detail below).
+
+Below are 9 sample companies and how both model were able to predict its values. As one can see from these examples that the model often understands the general patterns of the stock values but is not very accurate on random increase or random decrease spikes. But overall the model is relatively accurate on its predictions.
+
+![img](./ImageResults/RNNNineSampleCompanies.png)
+
+![](./ImageResults/LSTMNineSampleCompanies.png)
+
+### Justification of Results
+
+The RNN and LSTM models were designed as regression based models for predicting the next day's stock values, and as such they both were able to predict the target price with relatively low error. The RNN model performed better than the LSTM model given any selection of hyperparameters. This is likely due to having a small previous set of days for the model to learn from. Given a larger number of days to learn from the LSTM model may improve in accuracy over the RNN model due to being able to prioritize important information.
+=======
 The results obtained from the chart above indicated that our best model was on average 7.0588% away from the target value. This model was the RNN model and had 200 epochs, a batch size of 500, and had been given the previous 15 days of data. It had a mean squared training error of 7.7342%, a mean squared validation error of 7.6471% and a mean squared testing error of 7.0588%. It also had a classification error of 48.1734%. This is highly inaccurate and will be explained in the justification section below.
 
 ### Justification of Results
 
 Evaluating a machine learning model that predicts stock prices is a very challenging task due to the nature of stock prices. Most of the reasons for any drastic changes in stock values have to do with facts that are outside of the knowledge of previous stock prices. For example, a change in CEO, a new invention by a specific company, a devastating war, a pandemic, or others could drastically influence a company's stock values. None of these examples were accounted for in these models to learn rather the model was only trained by previous stocks values. Given these limitations, these models would be very effective in calculating short-term stock values and would become very close to the actual result.
+>>>>>>> 86ab627e9f26acc82ea92ed0e1bf9979c5c6892a
 
 During the testing phase, we ensured that companies that were tested on were never seen before by the model. This allowed the model to be tested on its predictions for entirely new companies. Thus these models could be utilized in a completely new company and will still perform very accurately with a very low error. In addition, the training set and validation set both had unique companies to ensure the ability of this model to later be expanded onto entirely new companies. 
 
