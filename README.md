@@ -58,7 +58,7 @@ The volume and OpenInt will be ignored for this dataset as they are irrelevant f
 
 The data was first randomized, then split such that 60% of the data was assigned as training data, 20% was assigned as validation data, and 20% was assigned as test data. This split was chosen arbitrarily, however, the randomization was important to ensure each data section had both recent and old data points. If the data points were split based on time, trends found in recent or older stocks may not be recognized by the model depending on the time split.
 
-Similarly, if the data points were split based on the company the model may not recognize techniques or patterns that another company used. As such, the data was simply split randomly rather than based on a particular attribute. It is important to note that different companies were in different datasets as we wanted this model to learn the general pattern for which it could expand and be tested for completely new companies.
+Similarly, if the data points were split based on the company the model may not recognize techniques or patterns that another company used. As such, the data was split randomly rather than based on a particular attribute. It is important to note that different companies were in different datasets as we wanted this model to learn the general pattern for which it could expand and be tested for completely new companies.
 
 ## Training
 
@@ -84,19 +84,19 @@ LSTM Model
 
 ![img](./ImageResults/LSTMHyperparameterTuning.png)
 
-As can be seen from the table, the RNN model performed slightly better than the LSTM Model. With the observations from the above table the best hyperparameter choices were to choose 200 epochs with a batch size of 500 and with the previous 15 days of data.
+As can be seen from the table, the RNN model performed slightly better than the LSTM Model. With the observations from the above table, the best hyperparameter choices were to choose 200 epochs with a batch size of 500 and with the previous 15 days of data.
 
 ## Results
 
 ### Quantitative Measures
 
-The quantitative measures that were used to evaluate this model were the mean squared error of the model compared to the target stock value, and the correctness of the model's prediction of an increase or decrease. The mean squared error tested how far the model's prediction was from the actual target stock value. The correctness of the model's prediction of an increase or decrease was based on whether the model predicted a higher or lower stock value than the previous day's stock value, and was compared to whether the actual stock value had increased or decreased. A correct prediction was a correct increase or decrease prediction, and anything else was considered incorrect.
+The quantitative measures that were used to evaluate this model were the mean squared error of the model compared to the target stock value, and the correctness of the model's prediction of an increase or decrease. The mean squared error tested how far the model's prediction was from the target stock value. The correctness of the model's prediction of an increase or decrease was based on whether the model predicted a higher or lower stock value than the previous day's stock value, and was compared to whether the actual stock value had increased or decreased. A correct prediction was a correct increase or decrease prediction, and anything else was considered incorrect.
 
 ### Quantitative and Qualitative Results
 
-The results obtained from the chart above indicated that our best model was on average 0.070588 away from the target value. This model was the RNN model and had 200 epochs, a batch size of 500, and had been given the previous 15 days of data. It had a mean squared training error of 0.077342, a mean squared validation error of 0.076471 and a mean squared testing error of 0.070588. It also had a classification (increase/decrease) error of 48.1734% due to this model being solely trained to evaluate a value that is closest to the next prediction rather than value being larger or smaller (explained in more detail below).
+The results obtained from the chart above indicated that our best model was on average 0.070588 away from the target value. This model was the RNN model and had 200 epochs, a batch size of 500, and had been given the previous 15 days of data. It had a mean squared training error of 0.077342, a mean squared validation error of 0.076471 and a mean squared testing error of 0.070588. It also had a classification (increase/decrease) error of 48.1734% due to this model being solely trained to evaluate a value that is closest to the next prediction rather than the value being larger or smaller (explained in more detail below).
 
-Below are 9 sample companies and how both model were able to predict its values. As one can see from these examples that the model often understands the general patterns of the stock values but is not very accurate on random increase or random decrease spikes. But overall the model is relatively accurate on its predictions.
+Below are 9 sample companies and how both models were able to predict their values. As one can see from these examples the model often understands the general patterns of the stock values but is not very accurate on the specific increase or decrease spikes. But overall the model is relatively accurate in its predictions of the companies' trends.
 
 ![img](./ImageResults/RNNNineSampleCompanies.png)
 
