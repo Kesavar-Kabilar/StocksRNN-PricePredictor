@@ -1,6 +1,6 @@
-# Welcome to Stocks RNN
+# Stocks RNN Price Predictor
 
-## Introduction
+## Overview
 
 The purpose of this project is to create a recurrent neural network model to predict future stock market prices according to previous price ranges. The model will receive information for a number of days, which will be treated as a hyperparameter, and output a prediction of the stock value for the next day. This model will be tested for accuracy based on its ability to predict stock values for the next day. In addition to this, the model will be tested on whether it correctly predicts a positive or negative change in stock price.
 
@@ -143,3 +143,4 @@ Training Function: Kesavar and Carmelo and Ryan
 Testing RNNs and Displaying Results: Kesavar, Ryan and Carmelo
 
 Readme.md: Kesavar, Ryan, and Carmelo
+
