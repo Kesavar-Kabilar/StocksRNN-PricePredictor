@@ -4,9 +4,13 @@
 
 The purpose of this project is to create a recurrent neural network model to predict future stock market prices according to previous price ranges. The model will receive information for a number of days, which will be treated as a hyperparameter, and output a prediction of the stock value for the next day. This model will be tested for accuracy based on its ability to predict stock values for the next day. In addition to this, the model will be tested on whether it correctly predicts a positive or negative change in stock price.
 
-This recurrent neural network utilizes standard classification to predict an increase or decrease, and standard regression to predict the stock value for the next day.
-
-This project utilizes a Recurrent Neural Network (RNN) Model as well as a Long Short Term Memory (LSTM) Model for the prediction of the stock market. Since stock prices often have various trends it is essential to see the previous data to aid in one's prediction of future data. Hence RNN and LSTM are very suitable for this project as they can store previous trends and make highly accurate predictions.
+The following tools were used to implement this project: 
+* **Python:** Utilized Python as the core language to structure the data pipeline, build models, and manage training, validation, and testing workflows.
+* **PyTorch:** Used PyTorch to define and train custom RNN and LSTM neural network architectures for predicting future stock prices.
+* **RNN:** Implemented a recurrent neural network (RNN) model to process sequences of past stock prices and forecast the next day's closing value.
+* **LSTM:** Built and trained a long short-term memory (LSTM) model to better capture temporal dependencies in stock price trends compared to a standard RNN.
+* **NumPy:** Imported NumPy for efficient numerical operations such as data normalization, shuffling datasets, and preparing input sequences.
+* **Matplotlib:** Visually displayed the training/validation performance curves in Matplotlib and compared the model predictions with actual stock prices for qualitative analysis.
 
 ## Model
 
@@ -143,4 +147,5 @@ Training Function: Kesavar and Carmelo and Ryan
 Testing RNNs and Displaying Results: Kesavar, Ryan and Carmelo
 
 Readme.md: Kesavar, Ryan, and Carmelo
+
 
